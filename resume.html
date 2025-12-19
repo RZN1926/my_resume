@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бекназар Усенканов - Junior Full Stack Developer</title>
+    <title>Бекназар Усенканов - Resume</title>
     <style>
         * {
             margin: 0;
@@ -16,6 +16,9 @@
             background: #0a0a0a;
             color: #fff;
             overflow-x: hidden;
+            /* Увеличен базовый размер шрифта */
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
 
         #particles {
@@ -26,19 +29,23 @@
             height: 100%;
             z-index: 0;
         }
-
+        
         .particle {
             position: absolute;
-            background: rgba(0, 191, 255, 0.6);
+            background: rgba(138, 43, 226, 0.6); /* Ваш основной голубой цвет */
             border-radius: 50%;
-            animation: float 20s infinite;
+            pointer-events: none; /* Чтобы частицы не мешали кликать по кнопкам */
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.3); /* Легкое свечение */
+            filter: blur(0.5px); /* Мягкие края */
+            animation: float infinite linear;
         }
 
+        /* Можно добавить вторую анимацию для разнообразия траекторий */
         @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            25% { transform: translate(100px, 100px); }
-            50% { transform: translate(-100px, 200px); }
-            75% { transform: translate(50px, -50px); }
+            0% { transform: translate(0, 0); }
+            33% { transform: translate(50px, 80px); }
+            66% { transform: translate(-30px, 40px); }
+            100% { transform: translate(0, 0); }
         }
 
         nav {
@@ -49,20 +56,22 @@
             background: rgba(20, 20, 20, 0.8);
             padding: 1rem 2rem;
             z-index: 100;
-            border-bottom: 1px solid rgba(0, 191, 255, 0.3);
+            border-bottom: 1px solid rgba(138, 43, 226, 0.3);
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.1rem;
             transition: all 0.3s;
             position: relative;
         }
@@ -74,53 +83,35 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #00bfff, #1e90ff);
+            background: linear-gradient(90deg, #8a2be2, #ff1493);
             transition: width 0.3s;
         }
 
-        nav a:hover::after {
-            width: 100%;
-        }
+        nav a:hover::after { width: 100%; }
 
         section {
-            min-height: 100vh;
-            padding: 6rem 2rem 2rem;
+            /* Уменьшено пространство между секциями */
+            padding: 4rem 2rem; 
             position: relative;
             z-index: 1;
-        }
-
-        .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         #hero {
+            min-height: 80vh; /* Только главный экран остался высоким */
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #0a0a0a 0%, #0a1a2e 100%);
-        }
-
-        .hero-content {
             text-align: center;
-            animation: fadeInUp 1s ease-out;
+            padding-top: 8rem;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        /* Эффект имени из второго кода */
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(90deg, #00bfff, #1e90ff, #4169e1);
+            background: linear-gradient(90deg, #8a2be2, #ff1493, #00bfff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -134,45 +125,40 @@
         }
 
         .hero-content h2 {
-            font-size: 2rem;
-            color: #aaa;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: #888;
-            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            color: #ccc;
+            margin-bottom: 1.5rem;
         }
 
         .btn {
             display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #00bfff, #1e90ff);
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #8a2be2, #ff1493);
             color: #fff;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
+            font-size: 1.2rem;
             transition: all 0.3s;
-            box-shadow: 0 5px 20px rgba(0, 191, 255, 0.4);
-            margin: 0.5rem;
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+            margin: 10px;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 191, 255, 0.6);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.6);
         }
 
         .glass-card {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 2.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             transition: all 0.3s;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
         }
 
         .glass-card.visible {
@@ -180,180 +166,215 @@
             transform: translateY(0);
         }
 
-        .glass-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 191, 255, 0.3);
-            border-color: rgba(0, 191, 255, 0.5);
-        }
-
         h3 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
             text-align: center;
-            background: linear-gradient(90deg, #00bfff, #1e90ff);
+            background: linear-gradient(90deg, #8a2be2, #ff1493);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
+        p {
+            font-size: 1.25rem; /* Увеличен размер обычного текста */
+            margin-bottom: 1rem;
+        }
+
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
-        .skill-item {
-            text-align: center;
-        }
-
-        .skill-item h4 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-
-        .tech-badge {
-            background: rgba(0, 191, 255, 0.1);
-            border: 1px solid rgba(0, 191, 255, 0.3);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .tech-badge:hover {
-            background: rgba(0, 191, 255, 0.2);
-            transform: scale(1.05);
-        }
+        .skill-item h4 { font-size: 1.4rem; margin-bottom: 0.8rem; }
 
         .progress-bar {
-            height: 10px;
+            height: 12px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             overflow: hidden;
-            position: relative;
         }
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #00bfff, #1e90ff);
-            border-radius: 10px;
+            background: linear-gradient(90deg, #8a2be2, #ff1493);
             width: 0;
             transition: width 1.5s ease-out;
-            box-shadow: 0 0 10px rgba(0, 191, 255, 0.8);
-        }
-
-        .experience-timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #00bfff, #1e90ff);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding-left: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.5rem;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: #1e90ff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(30, 144, 255, 0.8);
-        }
-
-        .timeline-item ul {
-            margin-top: 1rem;
-            padding-left: 1.5rem;
-        }
-
-        .timeline-item li {
-            margin-bottom: 0.5rem;
-            color: #ccc;
         }
 
         .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: flex;
+            flex-wrap: wrap; /* Позволяет карточкам переходить на новую строку */
+            justify-content: center; /* Центрирует карточки в ряду */
             gap: 2rem;
-            text-align: center;
+            max-width: 1000px; /* Ограничиваем ширину, чтобы в ряд влезало максимум 3 штуки */
+            margin: 0 auto;
         }
 
         .contact-item {
+            /* Рассчитываем ширину: (100% / 3) минус отступы */
+            flex: 0 1 calc(33.333% - 2rem); 
+            min-width: 280px; /* Чтобы на мобильных карточки не становились слишком узкими */
             padding: 2rem;
             background: rgba(255, 255, 255, 0.03);
             border-radius: 15px;
             transition: all 0.3s;
         }
+        
+        .contact-item { text-align: center; }
+        .contact-item h4 { font-size: 1.3rem; margin-bottom: 0.5rem; color: #ff1493; }
+        .contact-item a { color: #fff; text-decoration: none; font-size: 1.2rem; font-weight: 500; }
 
-        .contact-item:hover {
-            background: rgba(0, 191, 255, 0.1);
-            transform: scale(1.05);
-        }
-
-        .contact-item a {
-            color: #fff;
-            text-decoration: none;
+        .tech-badge {
+            display: inline-block;
+            background: rgba(138, 43, 226, 0.2);
+            padding: 0.5rem 1.2rem;
+            border-radius: 15px;
+            margin: 5px;
             font-size: 1.1rem;
-        }
-
-        .languages {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .lang-item {
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .lang-item h4 {
-            color: #00bfff;
-            margin-bottom: 0.5rem;
+            border: 1px solid rgba(138, 43, 226, 0.4);
         }
 
         footer {
             text-align: center;
             padding: 2rem;
-            background: rgba(20, 20, 20, 0.8);
-            border-top: 1px solid rgba(0, 191, 255, 0.3);
+            background: rgba(15, 15, 15, 0.9);
+            border-top: 1px solid rgba(138, 43, 226, 0.3);
+            font-size: 1.1rem;
         }
 
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .hero-content h1 { font-size: 3rem; }
+            h3 { font-size: 2.2rem; }
+            nav ul { gap: 0.8rem; }
+        }
+
+        /* Сетка навыков 2х4 без картинок */
+        .skills-grid-new {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 колонки в ряд */
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag-card {
+            background: rgba(22,22,22);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.2rem 0.8rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            min-height: 80px; /* Одинаковая высота для всех */
+        }
+
+        .skill-tag-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #00bfff;
+            transform: translateY(-5px);
+        }
+
+        /* Оформление контактов */
+        .contact-info-block {
+            font-size: 1.4rem;
+            line-height: 1.8;
+        }
+
+        .contact-info-block strong {
+            color: #00bfff;
+        }
+
+        .contact-info-block a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px dashed #00bfff;
+        }
+
+        /* Адаптивность для сетки */
+        @media (max-width: 900px) {
+            .skills-grid-new { grid-template-columns: repeat(2, 1fr); } /* 2 колонки на планшетах */
+        }
+        @media (max-width: 500px) {
+            .skills-grid-new { grid-template-columns: 1fr; } /* 1 колонка на телефонах */
+        }
+
+
+
+
+        /* Контейнер для карусели */
+        .skills-wheel-container {
+            width: 100%;
+            overflow: hidden; /* Прячем карточки, которые выходят за края */
+            padding: 2rem 0;
+            position: relative;
+            display: flex;
+        }
+
+        /* Сама лента с карточками */
+        .skills-wheel-track {
+            display: flex;
+            gap: 2rem;
+            width: max-content;
+            animation: scrollWheel 60s linear infinite; /* Движение влево */
+        }
+
+        .skills-wheel-container:hover .skills-wheel-track {
+            animation-play-state: running;
+        }
+
+        .skill-wheel-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem 2rem;
+            white-space: nowrap; /* Чтобы текст не переносился */
+            font-weight: 600;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-wheel-card:hover {
+            border-color: #00bfff;
+            background: rgba(0, 191, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* Анимация качения влево */
+        @keyframes scrollWheel {
+            0% {
+                transform: translateX(0);
             }
-            .hero-content h2 {
-                font-size: 1.5rem;
+            100% {
+                transform: translateX(-50%); /* Сдвигаем на половину длины (так как ряды дублируются) */
             }
-            nav ul {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
+        }
+
+        /* Затемнение по бокам для мягкого появления/исчезновения */
+        .skills-wheel-container::before,
+        .skills-wheel-container::after {
+            content: "";
+            height: 100%;
+            width: 150px;
+            position: absolute;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .skills-wheel-container::before {
+            left: 0;
+            background: linear-gradient(to right, #0a0a0a, transparent);
+        }
+
+        .skills-wheel-container::after {
+            right: 0;
+            background: linear-gradient(to left, #0a0a0a, transparent);
         }
     </style>
 </head>
@@ -363,10 +384,11 @@
     <nav>
         <ul>
             <li><a href="#hero">Главная</a></li>
-            <li><a href="#about">О себе</a></li>
-            <li><a href="#skills">Навыки</a></li>
-            <li><a href="#experience">Опыт</a></li>
+            <li><a href="#about">Обо мне</a></li>
             <li><a href="#education">Образование</a></li>
+            <li><a href="#experience">Опыт</a></li>
+            <li><a href="#skills">Навыки</a></li>
+            <li><a href="#interests">Интересы</a></li>
             <li><a href="#contact">Контакты</a></li>
         </ul>
     </nav>
@@ -375,9 +397,9 @@
         <div class="hero-content">
             <h1>Бекназар Усенканов</h1>
             <h2>Junior Full Stack Developer</h2>
-            <p>Python • Django • PostgreSQL • REST API</p>
-            <a href="#contact" class="btn">Связаться со мной</a>
-            <a href="https://github.com/rzn1926" target="_blank" class="btn">GitHub</a>
+            <div style="margin-top: 20px;">
+                <a href="#contact" class="btn">Связаться</a>
+            </div>
         </div>
     </section>
 
@@ -385,128 +407,14 @@
         <div class="container">
             <h3>Обо мне</h3>
             <div class="glass-card">
-                <p style="font-size: 1.2rem; line-height: 1.8; text-align: center;">
-                    Junior Full Stack разработчик на Python. Разрабатывал REST API на Django REST Framework и работал с PostgreSQL и MySQL, 
-                    проектировал базы данных. Имею опыт работы с Celery для асинхронных задач и интеграции Redis. 
-                    Участвовал в командной разработке корпоративной системы управления для Red Petroleum (проект в production). 
+                <p style="text-align: center;">
+                    Я Junior Full Stack разработчик на Python.
+                    Разрабатывал REST API на DRF, работал с PostgreSQL, MySQL, проектировал базы данных, имею опыт работы с Celery для асинхронных задач и интеграции Redis.
+                    Участвовал в командной разработке корпоративной системы управления для Red Petroleum.
+                    Работал ассистентом в академии программирования, помогал изучать основы программирования.
+                    Прошел курс по Python в Codify Academy.
                     Стремлюсь развиваться в Backend-разработке, открыт к стажировкам и junior-позициям.
                 </p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">Django</span>
-                    <span class="tech-badge">Django REST Framework</span>
-                    <span class="tech-badge">PostgreSQL</span>
-                    <span class="tech-badge">MySQL</span>
-                    <span class="tech-badge">Celery</span>
-                    <span class="tech-badge">Redis</span>
-                    <span class="tech-badge">REST API</span>
-                    <span class="tech-badge">Git</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="container">
-            <h3>Навыки и технологии</h3>
-            <div class="skills-grid">
-                <div class="glass-card">
-                    <div class="skill-item">
-                        <h4>Backend Development</h4>
-                        <div class="progress-bar">
-                            <div class="progress-fill" data-progress="85"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-card">
-                    <div class="skill-item">
-                        <h4>Database Management</h4>
-                        <div class="progress-bar">
-                            <div class="progress-fill" data-progress="80"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-card">
-                    <div class="skill-item">
-                        <h4>REST API</h4>
-                        <div class="progress-bar">
-                            <div class="progress-fill" data-progress="85"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-card">
-                    <div class="skill-item">
-                        <h4>Async Tasks (Celery)</h4>
-                        <div class="progress-bar">
-                            <div class="progress-fill" data-progress="75"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-card">
-                    <div class="skill-item">
-                        <h4>Testing & Debugging</h4>
-                        <div class="progress-bar">
-                            <div class="progress-fill" data-progress="80"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-card">
-                    <div class="skill-item">
-                        <h4>3D Modeling (Blender)</h4>
-                        <div class="progress-bar">
-                            <div class="progress-fill" data-progress="70"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="glass-card" style="margin-top: 3rem;">
-                <h4 style="text-align: center; font-size: 1.5rem; margin-bottom: 1.5rem;">Дополнительные навыки</h4>
-                <div class="tech-stack">
-                    <span class="tech-badge">Управление БД</span>
-                    <span class="tech-badge">Документирование</span>
-                    <span class="tech-badge">Тестирование ПО</span>
-                    <span class="tech-badge">Техническая поддержка</span>
-                    <span class="tech-badge">Обучение пользователей</span>
-                    <span class="tech-badge">Отладка</span>
-                    <span class="tech-badge">Figma</span>
-                    <span class="tech-badge">Blender 3D</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <div class="container">
-            <h3>Опыт работы</h3>
-            <div class="experience-timeline">
-                <div class="glass-card">
-                    <div class="timeline-item">
-                        <h4 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Ассистент</h4>
-                        <p style="color: #00bfff; margin-bottom: 0.5rem;">IT-RUN • Академия программирования</p>
-                        <p style="color: #888; margin-bottom: 1rem;">Октябрь 2024 - Февраль 2025 • Бишкек</p>
-                        <ul>
-                            <li>Помощь студентам в освоении Python и основ программирования</li>
-                            <li>Проверка учебных заданий и код-ревью</li>
-                            <li>Объяснение концепций (ООП, работа с БД, алгоритмы)</li>
-                            <li>Личные консультации студентов по их проектам</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="glass-card">
-                    <div class="timeline-item">
-                        <h4 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Backend разработчик</h4>
-                        <p style="color: #00bfff; margin-bottom: 0.5rem;">Codify / Red Petroleum</p>
-                        <p style="color: #888; margin-bottom: 1rem;">Август 2024 • Проект в production</p>
-                        <ul>
-                            <li>Разработка backend-логики на Django (управление пользователями, отделами, объектами)</li>
-                            <li>Проектирование и оптимизация базы данных PostgreSQL</li>
-                            <li>Реализация модуля финансовой отчетности с расчетом плановых и фактических показателей</li>
-                            <li>Интеграция Celery для асинхронной обработки задач</li>
-                            <li>Разработка REST API с использованием Django REST Framework</li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -515,129 +423,238 @@
         <div class="container">
             <h3>Образование</h3>
             <div class="glass-card">
-                <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">IT & Business College</h4>
-                <p style="color: #00bfff; margin-bottom: 0.5rem;">Программное Обеспечение Вычислительной Техники и Автоматизированных Систем</p>
-                <p style="color: #888; margin-bottom: 1.5rem;">Сентябрь 2023 - Июнь 2026 • Бишкек, Кыргызстан</p>
-                <p style="line-height: 1.6;">Среднее профессиональное образование в области IT. Изучение программирования, баз данных, сетевых технологий и разработки программного обеспечения.</p>
+                <h4 style="font-size: 1.5rem;">IT&Business College</h4>
+                <p style="color: #8a2be2;">Специальность: Программное Обеспечение Вычислительной Техники и Автоматизированных Систем</p>
+                <p>2023 - 2026 г. Бишкек</p>
+                <hr style="margin: 1.5rem 0; opacity: 0.1;">
+                <p><strong>Языки:</strong><br>Русский - C2<br>Английский - C1<br>Кыргызский - B1<br>Немецкий - A1</p>
+                <hr style="margin: 1.5rem 0; opacity: 0.1;">
+                <h4 style="font-size: 1.5rem;">Сертификаты</h4>
+                <p style="color: #8a2be2;">Codify Academy, Python Bootcamp</p>
+                <p>06/2024 - 09/2024</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h3>Опыт работы</h3>
+            <div class="glass-card">
+                <h4 style="font-size: 1.5rem;">Ассистент преподавателя</h4>
+                <p style="color: #ff1493;">Академия IT-RUN • 10/2024 - 02/2025</p>
+                <hr style="margin: 1.5rem 0; opacity: 0.1;">
+                <p style="font-weight: bold;">Обязанности:</p>
+                <p>• Помощь студентам в освоении Python и основ программирования.
+                    <br>• Проверка заданий.
+                    <br>• Объяснение концепций (ООП, БД).
+                    <br>• Личная консультации по проектам и дз.
+                </p>
+                <hr style="margin: 1.5rem 0; opacity: 0.1;">
+                <p>Контактное лицо: Алия<br>
+                    <img src="telegram_svg.svg" style="width: 24p; height: 24px; vertical-align: middle;"> <a href="https://t.me/mkaliya_a" style="color: rgb(120, 214, 237);">@mkaliya_a</a>, 
+                    <img src="phone.png" style="width: 24p; height: 24px; vertical-align: middle;"><a href="tel:+996501997055" onclick="copyText(this)"
+                    style="color: rgb(120, 214, 237); cursor: pointer; text-decoration: none;"> 0501997055</a>
+                </p>
+            </div>
+            
+            <div class="glass-card">
+                <h4 style="font-size: 1.5rem;">Backend разработчик</h4>
+                <p style="color: #ff1493;">Codify / Red Petroleum • 2024</p>
+                <hr style="margin: 1.5rem 0; opacity: 0.1;">
+                <p style="font-weight: bold;">Обязанности:</p>
+                <p>• Разработка backend-логики на Django (управление пользователями, отделами, объектами).
+                    <br>• Проектирование и оптимизация базы данных PostgreSQL.
+                    <br>• Реализация модуля финансовой отчетности с расчетом плановых и фактических показателей.
+                    <br>• Интеграция Celery для асинхронной обработки задач.
+                    <br>• Разработка REST API с использованием Django REST Framework.
+                </p>
+                <hr style="margin: 1.5rem 0; opacity: 0.1;">
+                <p>Контактное лицо: Каюм Аманбаев<br>
+                    <img src="telegram_svg.svg" style="width: 24p; height: 24px; vertical-align: middle;"> <a href="https://t.me/mkaliya_a" style="color: rgb(120, 214, 237);">@amankaium</a>
+                </p>
             </div>
 
             <div class="glass-card">
-                <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">Сертификаты</h4>
-                <div style="text-align: center;">
-                    <p style="color: #00bfff; font-size: 1.2rem; margin-bottom: 0.5rem;">Codify Academy</p>
-                    <p>Python Bootcamp</p>
-                    <p style="color: #888;">Июнь 2024 - Сентябрь 2024</p>
+                <h4 style="font-size: 1.5rem;">Помощник</h4>
+                <p style="color: #ff1493;">IT&Business College • 2025</p>
+                <hr style="margin: 1.5rem 0; opacity: 0.1;">
+                <p style="font-weight: bold;">Обязанности:</p>
+                <p>• Управление учебной лаборатории: подготовка рабочих мест и инвентаря для занятий.
+                    <br>• Помощь в научно-исследовательской деятельности.
+                    <br>• Помощь в разработке некоторых учебных проектов.
+                </p>
+                <hr style="margin: 1.5rem 0; opacity: 0.1;">
+                <p>Контактное лицо: Нурбеков Мирлан<br>
+                    <img src="at_sign_svg.png" style="width: 24p; height: 24px; vertical-align: middle;"><a href="mailto:mirlan.nurbekov@alatoo.edu.kg" onclick="copyText(this.querySelector('a'))" style="cursor: pointer;"> mirlan.nurbekov@alatoo.edu.kg</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h3>Навыки</h3>
+            <div class="skills-wheel-container">
+                <div class="skills-wheel-track">
+                    <div class="skill-wheel-card">Управление БД</div>
+                    <div class="skill-wheel-card">Навыки документирования</div>
+                    <div class="skill-wheel-card">Тестирование ПО</div>
+                    <div class="skill-wheel-card">Техническая поддержка</div>
+                    <div class="skill-wheel-card">Обучение пользователей</div>
+                    <div class="skill-wheel-card">Навыки отладки</div>
+                    <div class="skill-wheel-card">3D моделирование в Blender</div>
+                    <div class="skill-wheel-card">Работа с Figma</div>
+                    
+                    <div class="skill-wheel-card">Управление БД</div>
+                    <div class="skill-wheel-card">Навыки документирования</div>
+                    <div class="skill-wheel-card">Тестирование ПО</div>
+                    <div class="skill-wheel-card">Техническая поддержка</div>
+                    <div class="skill-wheel-card">Обучение пользователей</div>
+                    <div class="skill-wheel-card">Навыки отладки</div>
+                    <div class="skill-wheel-card">3D моделирование в Blender</div>
+                    <div class="skill-wheel-card">Работа с Figma</div>
+
+                    <div class="skill-wheel-card">Управление БД</div>
+                    <div class="skill-wheel-card">Навыки документирования</div>
+                    <div class="skill-wheel-card">Тестирование ПО</div>
+                    <div class="skill-wheel-card">Техническая поддержка</div>
+                    <div class="skill-wheel-card">Обучение пользователей</div>
+                    <div class="skill-wheel-card">Навыки отладки</div>
+                    <div class="skill-wheel-card">3D моделирование в Blender</div>
+                    <div class="skill-wheel-card">Работа с Figma</div>
+
+                    <div class="skill-wheel-card">Управление БД</div>
+                    <div class="skill-wheel-card">Навыки документирования</div>
+                    <div class="skill-wheel-card">Тестирование ПО</div>
+                    <div class="skill-wheel-card">Техническая поддержка</div>
+                    <div class="skill-wheel-card">Обучение пользователей</div>
+                    <div class="skill-wheel-card">Навыки отладки</div>
+                    <div class="skill-wheel-card">3D моделирование в Blender</div>
+                    <div class="skill-wheel-card">Работа с Figma</div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="glass-card">
-                <h4 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Языки</h4>
-                <div class="languages">
-                    <div class="lang-item">
-                        <h4>🇷🇺 Русский</h4>
-                    </div>
-                    <div class="lang-item">
-                        <h4>🇬🇧 Английский</h4>
-                    </div>
-                    <div class="lang-item">
-                        <h4>🇰🇬 Кыргызский</h4>
-                    </div>
-                    <div class="lang-item">
-                        <h4>🇩🇪 Немецкий</h4>
-                    </div>
-                </div>
+    <section id="interests">
+        <div class="container">
+            <h3>Интересы</h3>
+            <div class="glass-card" style="text-align: center;">
+                <span class="tech-badge">🌐 Сети и протоколы</span>
+                <span class="tech-badge">🤖 ИИ и Автоматизация</span>
+                <span class="tech-badge">🎨 Blender 3D</span>
+                <span class="tech-badge">⚙️ Микроконтроллеры и одноплатные компьютеры</span>
             </div>
         </div>
     </section>
 
     <section id="contact">
         <div class="container">
-            <h3>Контакты</h3>
+            <h3>Контакты и Ссылки</h3>
             <div class="contact-grid">
-                <div class="glass-card contact-item">
-                    <h4>📧 Email</h4>
+                <div class="glass-card contact-item" onclick="copyText(this.querySelector('a'))" style="cursor: pointer;">
+                    <h4>Email</h4>
                     <a href="mailto:kalygulovbeka7@gmail.com">kalygulovbeka7@gmail.com</a>
                 </div>
-                <div class="glass-card contact-item">
-                    <h4>📱 Телефон</h4>
-                    <a href="tel:+996501190927">+996 501 190 927</a>
-                </div>
-                <div class="glass-card contact-item">
-                    <h4>💼 GitHub</h4>
-                    <a href="https://github.com/rzn1926" target="_blank">github.com/rzn1926</a>
-                </div>
-                <div class="glass-card contact-item">
-                    <h4>💻 Stack Overflow</h4>
-                    <a href="https://stackoverflow.com/users/26553271/rzn1926" target="_blank">stackoverflow.com/rzn1926</a>
-                </div>
-            </div>
 
-            <div class="glass-card" style="margin-top: 3rem;">
-                <h4 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">🎯 Интересы</h4>
-                <div class="tech-stack">
-                    <span class="tech-badge">🌐 Сетевые технологии (TCP/IP)</span>
-                    <span class="tech-badge">🤖 Автоматизация с Python</span>
-                    <span class="tech-badge">🔧 Одноплатные компьютеры</span>
-                    <span class="tech-badge">🎨 3D-моделирование в Blender</span>
-                    <span class="tech-badge">📊 Парсинг данных</span>
-                    <span class="tech-badge">⚙️ Микроконтроллеры</span>
+                <div class="glass-card contact-item">
+                    <h4>Телеграм</h4>
+                    <a href="https://t.me/SLTRZN" target="_blank">@SLTRZN</a>
                 </div>
+
+                <div class="glass-card contact-item" onclick="copyText(this.querySelector('a'))" style="cursor: pointer;">
+                    <h4>Телефон</h4>
+                    <a href="tel:0501190927">0501 190 927</a>
+                </div>
+
+                <div class="glass-card contact-item">
+                    <h4>GitHub</h4>
+                    <a href="https://github.com/RZN1926" target="_blank">RZN1926</a>
+                </div>
+
+                <div class="glass-card contact-item">
+                    <h4>Stack Overflow</h4>
+                    <a href="https://stackoverflow.com/users/26553271" target="_blank">RZN1926</a>
+                </div>
+
             </div>
         </div>
     </section>
-
+    
     <footer>
-        <p>© 2024 Бекназар Усенканов • Junior Full Stack Developer</p>
-        <p style="margin-top: 0.5rem; color: #666;">Создано с 💙 • Бишкек, Кыргызстан</p>
+        <p>© 2024 Усенканов Бекназар.</p>
     </footer>
 
     <script>
-        // Создание частиц на фоне
+        // Частицы
         const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 250; i++) {
             const p = document.createElement('div');
             p.className = 'particle';
-            const size = Math.random() * 4 + 1;
+            const size = Math.random() * 5 + 2;
             p.style.width = size + 'px';
             p.style.height = size + 'px';
             p.style.left = Math.random() * 100 + '%';
             p.style.top = Math.random() * 100 + '%';
-            p.style.animationDelay = Math.random() * 20 + 's';
-            p.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            p.style.animationDuration = (Math.random() * 10 + 10) + 's';
             particlesContainer.appendChild(p);
         }
 
-        // Плавная прокрутка
+        // Плавный скролл
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
 
-        // Анимация появления карточек
+        // Анимация при скролле
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    
-                    // Анимация прогресс-баров
                     const fill = entry.target.querySelector('.progress-fill');
-                    if (fill) {
+                    if (fill) fill.style.width = fill.parentElement.previousElementSibling.dataset.progress ? '' : '100%'; 
+                    // Исправление для прогресс-баров
+                    const progressVal = entry.target.querySelector('[data-progress]');
+                    if (progressVal) {
                         setTimeout(() => {
-                            fill.style.width = fill.dataset.progress + '%';
-                        }, 200);
+                            progressVal.style.width = progressVal.dataset.progress + '%';
+                        }, 300);
                     }
                 }
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.glass-card').forEach(card => {
-            observer.observe(card);
-        });
+        document.querySelectorAll('.glass-card').forEach(card => observer.observe(card));
+
+        function copyText(element) {
+            // Получаем текст из карточки
+            const textToCopy = element.innerText;
+            
+            // Копируем в буфер обмена
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                // Визуальный эффект подтверждения
+                const originalBg = element.style.background;
+                element.style.background = "rgba(121, 194, 226, 0.8)"; // Подсветка при клике
+                
+                // Маленькое уведомление (опционально)
+                console.log('Скопировано: ' + textToCopy);
+                
+                // Возвращаем исходный стиль через 200мс
+                setTimeout(() => {
+                    element.style.background = originalBg;
+                }, 200);
+            }).catch(err => {
+                console.error('Ошибка при копировании: ', err);
+            });
+        }
     </script>
 </body>
 </html>
