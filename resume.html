@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Усенканов Бекназар - Full Stack Pyhon Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(138, 43, 226, 0.6);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(100px, 100px);
+            }
+
+            50% {
+                transform: translate(-100px, 200px);
+            }
+
+            75% {
+                transform: translate(50px, -50px);
+            }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            background: rgba(20, 20, 20, 0.8);
+            padding: 1rem 2rem;
+            z-index: 100;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #8a2be2, #ff1493);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #8a2be2, #ff1493, #00bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero-content h2 {
+            font-size: 2rem;
+            color: #aaa;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #8a2be2, #ff1493);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.6);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .glass-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.3);
+            border-color: rgba(138, 43, 226, 0.5);
+        }
+
+        h3 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(90deg, #8a2be2, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            text-align: center;
+        }
+
+        .skill-item h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8a2be2, #ff1493);
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s ease-out;
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #8a2be2, #ff1493);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: #ff1493;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 20, 147, 0.8);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(138, 43, 226, 0.1);
+            transform: scale(1.05);
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(20, 20, 20, 0.8);
+            border-top: 1px solid rgba(138, 43, 226, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles"></div>
+    <nav>
+        <ul>
+            <li><a href="#hero">Главная</a></li>
+            <li><a href="#about">О себе</a></li>
+            <li><a href="#skills">Навыки</a></li>
+            <li><a href="#experience">Опыт</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Усенканов Бекназар</h1>
+            <h2>Full Stack Pyhon Developer</h2> <a href="#contact" class="btn">Связаться со мной</a>
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <h3>Обо мне</h3>
+            <div class="glass-card">
+                <p style="font-size: 1.2rem; line-height: 1.8; text-align: center;"> Я Junior Full Stack разработчик на
+                    Python. Разрабатывал REST API на DRF, работал с PostgreSQL, MySQL, проектировал базы данных, имею
+                    опыт работы с Celery для асинхронных задач и интеграции Redis. Участвовал в командной разработке
+                    корпоративной системы управления для Red Petroleum. Работал ассистентом в академии программирования,
+                    помогал изучать основы программирования. Прошел курс по Python в Codify Academy. Стремлюсь
+                    развиваться в Backend-разработке, открыт к стажировкам и junior-позициям. </p>
+            </div>
+        </div>
+    </section>
+    <!-- <section id="skills"> <div class="container"> <h3>Навыки</h3> <div class="skills-grid"> <div class="glass-card"> <div class="skill-item"> <h4>JavaScript / TypeScript</h4> <div class="progress-bar"> <div class="progress-fill" data-progress="95"></div> </div> </div> </div> <div class="glass-card"> <div class="skill-item"> <h4>React / Next.js</h4> <div class="progress-bar"> <div class="progress-fill" data-progress="90"></div> </div> </div> </div> <div class="glass-card"> <div class="skill-item"> <h4>Vue.js / Nuxt</h4> <div class="progress-bar"> <div class="progress-fill" data-progress="85"></div> </div> </div> </div> <div class="glass-card"> <div class="skill-item"> <h4>CSS / Tailwind</h4> <div class="progress-bar"> <div class="progress-fill" data-progress="95"></div> </div> </div> </div> <div class="glass-card"> <div class="skill-item"> <h4>Node.js / Express</h4> <div class="progress-bar"> <div class="progress-fill" data-progress="80"></div> </div> </div> </div> <div class="glass-card"> <div class="skill-item"> <h4>UI/UX Design</h4> <div class="progress-bar"> <div class="progress-fill" data-progress="88"></div> </div> </div> </div> </div> </div> </section> -->
+    <section id="experience">
+        <div class="container">
+            <h3>Опыт работы</h3>
+            <div class="experience-timeline">
+                <div class="glass-card">
+                    <div class="timeline-item">
+                        <h4 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Ассистент</h4>
+                        <p style="color: #8a2be2; margin-bottom: 1rem;">IT-RUN • 10/2024 - 02/2025</p>
+                        <p>Помощь студентам в освоении Python и основ программирования. Проверка учебных заданий.
+                            Объяснение концепций (ООП, БД). Личная консультации по проектам и дз.</p>
+                    </div>
+                </div>
+                <div class="glass-card">
+                    <div class="timeline-item">
+                        <h4 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Backend разработчик</h4>
+                        <p style="color: #8a2be2; margin-bottom: 1rem;">Codify/Red Petrolium • 08/2024 - 08/2024</p>
+                        <p>Разработка backend-логики на Django (управление пользователями, отделами, объектами).
+                            Проектирование и оптимизация базы данных PostgreSQL. Реализация модуля финансовой отчетности
+                            с расчетом плановых и фактических показателей. Интеграция Celery для асинхронной обработки
+                            задач. Разработка REST API с использованием Django REST Framework.</p>
+                    </div>
+                </div>
+                <div class="glass-card">
+                    <div class="timeline-item">
+                        <h4 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Помощник</h4>
+                        <p style="color: #8a2be2; margin-bottom: 1rem;">IT&Business college • 10/2025 - по н. в.</p>
+                        <!-- <p>Верстка адаптивных сайтов, работа с JavaScript и jQuery, первый опыт с React.</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <h3>Контакты</h3>
+            <div class="contact-grid">
+                <div class="glass-card contact-item">
+                    <h4>Email</h4> <a href="mailto:kalygulovbeka7@gmail.com">kalygulovbeka7@gmail.com</a>
+                </div>
+                <div class="glass-card contact-item">
+                    <h4>Телефон</h4> <a>0501190927</a>
+                </div>
+                <div class="glass-card contact-item">
+                    <h4>GitHub</h4> <a href="https://github.com/rzn1926" target="_blank">https://github.com/rzn1926</a>
+                </div>
+                <div class="glass-card contact-item">
+                    <h4>Stack Overflow</h4> <a href="https://stackoverflow.com/users/26553271"
+                        target="_blank">https://stackoverflow.com/users/26553271</a>
+                </div>
+                <div class="glass-card contact-item">
+                    <h4>Telegram</h4> <a href="https://t.me/sltrzn" target="_blank">@SLTRZN</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>© 2024 Усенканов Бекназар.</p>
+    </footer>
+    <script> // Создание частиц на фоне const
+        particlesContainer = document.getElementById('particles'); for (let i = 0; i < 30; i++) { const p = document.createElement('div'); p.className = 'particle'; const size = Math.random() * 4 + 1; p.style.width = size + 'px'; p.style.height = size + 'px'; p.style.left = Math.random() * 100 + '%'; p.style.top = Math.random() * 100 + '%'; p.style.animationDelay = Math.random() * 20 + 's'; p.style.animationDuration = (Math.random() * 10 + 15) + 's'; particlesContainer.appendChild(p); } // Плавная прокрутка document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function(e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) { target.scrollIntoView({ behavior: 'smooth' }); } }); }); // Анимация появления карточек const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); // Анимация прогресс-баров const fill = entry.target.querySelector('.progress-fill'); if (fill) { setTimeout(() => { fill.style.width = fill.dataset.progress + '%'; }, 200); } } }); }, { threshold: 0.1 }); document.querySelectorAll('.glass-card').forEach(card => { observer.observe(card); }); </script>
+</body>
+
+</html>
