@@ -16,7 +16,6 @@
             background: #0a0a0a;
             color: #fff;
             overflow-x: hidden;
-            /* Увеличен базовый размер шрифта */
             font-size: 1.1rem;
             line-height: 1.6;
         }
@@ -32,15 +31,14 @@
         
         .particle {
             position: absolute;
-            background: rgba(138, 43, 226, 0.6); /* Ваш основной голубой цвет */
+            background: rgba(138, 43, 226, 0.6);
             border-radius: 50%;
-            pointer-events: none; /* Чтобы частицы не мешали кликать по кнопкам */
-            box-shadow: 0 0 10px rgba(0, 191, 255, 0.3); /* Легкое свечение */
-            filter: blur(0.5px); /* Мягкие края */
+            pointer-events: none;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+            filter: blur(0.5px);
             animation: float infinite linear;
         }
 
-        /* Можно добавить вторую анимацию для разнообразия траекторий */
         @keyframes float {
             0% { transform: translate(0, 0); }
             33% { transform: translate(50px, 80px); }
@@ -57,6 +55,9 @@
             padding: 1rem 2rem;
             z-index: 100;
             border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         nav ul {
@@ -65,6 +66,54 @@
             justify-content: center;
             gap: 1.5rem;
             flex-wrap: wrap;
+            margin: 0 auto;
+        }
+
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 101;
+        }
+
+        .burger-menu span {
+            width: 28px;
+            height: 3px;
+            background: #fff;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .burger-menu.active span:nth-child(1) {
+            transform: rotate(405deg) translate(11.5px, 0px);
+        }
+
+        .burger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active span:nth-child(3) {
+            transform: rotate(-405deg) translate(11.5px, 0px);
+        }
+
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 99;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            display: block;
+            opacity: 1;
         }
 
         nav a {
@@ -90,8 +139,7 @@
         nav a:hover::after { width: 100%; }
 
         section {
-            /* Уменьшено пространство между секциями */
-            padding: 4rem 2rem; 
+            padding: 4rem 2rem;
             position: relative;
             z-index: 1;
             max-width: 1100px;
@@ -99,7 +147,7 @@
         }
 
         #hero {
-            min-height: 80vh; /* Только главный экран остался высоким */
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -107,7 +155,6 @@
             padding-top: 8rem;
         }
 
-        /* Эффект имени из второго кода */
         .hero-content h1 {
             font-size: 4.5rem;
             margin-bottom: 1rem;
@@ -177,7 +224,7 @@
         }
 
         p {
-            font-size: 1.25rem; /* Увеличен размер обычного текста */
+            font-size: 1.25rem;
             margin-bottom: 1rem;
         }
 
@@ -205,24 +252,23 @@
 
         .contact-grid {
             display: flex;
-            flex-wrap: wrap; /* Позволяет карточкам переходить на новую строку */
-            justify-content: center; /* Центрирует карточки в ряду */
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 2rem;
-            max-width: 1000px; /* Ограничиваем ширину, чтобы в ряд влезало максимум 3 штуки */
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .contact-item {
-            /* Рассчитываем ширину: (100% / 3) минус отступы */
-            flex: 0 1 calc(33.333% - 2rem); 
-            min-width: 280px; /* Чтобы на мобильных карточки не становились слишком узкими */
+            flex: 0 1 calc(33.333% - 2rem);
+            min-width: 280px;
             padding: 2rem;
             background: rgba(255, 255, 255, 0.03);
             border-radius: 15px;
             transition: all 0.3s;
+            text-align: center;
         }
         
-        .contact-item { text-align: center; }
         .contact-item h4 { font-size: 1.3rem; margin-bottom: 0.5rem; color: #ff1493; }
         .contact-item a { color: #fff; text-decoration: none; font-size: 1.2rem; font-weight: 500; }
 
@@ -244,16 +290,9 @@
             font-size: 1.1rem;
         }
 
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 3rem; }
-            h3 { font-size: 2.2rem; }
-            nav ul { gap: 0.8rem; }
-        }
-
-        /* Сетка навыков 2х4 без картинок */
         .skills-grid-new {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 колонки в ряд */
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.2rem;
             margin-top: 1rem;
         }
@@ -270,7 +309,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            min-height: 80px; /* Одинаковая высота для всех */
+            min-height: 80px;
         }
 
         .skill-tag-card:hover {
@@ -279,7 +318,6 @@
             transform: translateY(-5px);
         }
 
-        /* Оформление контактов */
         .contact-info-block {
             font-size: 1.4rem;
             line-height: 1.8;
@@ -295,32 +333,19 @@
             border-bottom: 1px dashed #00bfff;
         }
 
-        /* Адаптивность для сетки */
-        @media (max-width: 900px) {
-            .skills-grid-new { grid-template-columns: repeat(2, 1fr); } /* 2 колонки на планшетах */
-        }
-        @media (max-width: 500px) {
-            .skills-grid-new { grid-template-columns: 1fr; } /* 1 колонка на телефонах */
-        }
-
-
-
-
-        /* Контейнер для карусели */
         .skills-wheel-container {
             width: 100%;
-            overflow: hidden; /* Прячем карточки, которые выходят за края */
+            overflow: hidden;
             padding: 2rem 0;
             position: relative;
             display: flex;
         }
 
-        /* Сама лента с карточками */
         .skills-wheel-track {
             display: flex;
             gap: 2rem;
             width: max-content;
-            animation: scrollWheel 60s linear infinite; /* Движение влево */
+            animation: scrollWheel 60s linear infinite;
         }
 
         .skills-wheel-container:hover .skills-wheel-track {
@@ -333,7 +358,7 @@
             border: 1px solid rgba(0, 191, 255, 0.3);
             border-radius: 15px;
             padding: 1.5rem 2rem;
-            white-space: nowrap; /* Чтобы текст не переносился */
+            white-space: nowrap;
             font-weight: 600;
             color: #fff;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -346,17 +371,15 @@
             transform: translateY(-5px);
         }
 
-        /* Анимация качения влево */
         @keyframes scrollWheel {
             0% {
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%); /* Сдвигаем на половину длины (так как ряды дублируются) */
+                transform: translateX(-50%);
             }
         }
 
-        /* Затемнение по бокам для мягкого появления/исчезновения */
         .skills-wheel-container::before,
         .skills-wheel-container::after {
             content: "";
@@ -376,12 +399,346 @@
             right: 0;
             background: linear-gradient(to left, #0a0a0a, transparent);
         }
+
+        /* ============ АДАПТИВНОСТЬ ============ */
+
+        /* Планшеты (768px - 1024px) */
+        @media (max-width: 1024px) {
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 2.4rem;
+            }
+
+            .glass-card {
+                padding: 2rem;
+            }
+
+            .skills-grid-new {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .contact-item {
+                flex: 0 1 calc(50% - 2rem);
+            }
+        }
+
+        /* Маленькие планшеты и большие телефоны (481px - 768px) */
+        @media (max-width: 768px) {
+            body {
+                font-size: 1rem;
+            }
+
+            .burger-menu {
+                display: flex;
+            }
+
+            nav {
+                padding: 0.8rem 1rem;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(15, 15, 15, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.4s ease;
+                border-left: 1px solid rgba(138, 43, 226, 0.3);
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav a {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 2.5rem 1rem;
+            }
+
+            #hero {
+                min-height: 70vh;
+                padding-top: 6rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 0.8rem 2rem;
+                font-size: 1.1rem;
+            }
+
+            .glass-card {
+                padding: 1.5rem;
+                border-radius: 20px;
+            }
+
+            .glass-card h4 {
+                font-size: 1.3rem !important;
+            }
+
+            .skills-grid-new {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .skill-tag-card {
+                padding: 1rem 0.6rem;
+                font-size: 0.95rem;
+                min-height: 70px;
+            }
+
+            .contact-grid {
+                gap: 1.5rem;
+            }
+
+            .contact-item {
+                flex: 0 1 100%;
+                min-width: auto;
+                padding: 1.5rem;
+            }
+
+            .tech-badge {
+                padding: 0.4rem 1rem;
+                font-size: 1rem;
+                margin: 3px;
+            }
+
+            .skill-wheel-card {
+                padding: 1.2rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .skills-wheel-container::before,
+            .skills-wheel-container::after {
+                width: 50px;
+            }
+
+            footer {
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Мобильные телефоны (до 480px) */
+        @media (max-width: 480px) {
+            body {
+                font-size: 0.95rem;
+            }
+
+            .burger-menu {
+                display: flex;
+            }
+
+            nav {
+                padding: 0.7rem 0.8rem;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: rgba(15, 15, 15, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.4s ease;
+                border-left: 1px solid rgba(138, 43, 226, 0.3);
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav a {
+                font-size: 1.1rem;
+                padding: 0.5rem;
+            }
+
+            section {
+                padding: 2rem 0.8rem;
+            }
+
+            #hero {
+                min-height: 60vh;
+                padding-top: 5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 1.7rem;
+                margin-bottom: 1.2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 1rem;
+                margin: 5px;
+            }
+
+            .glass-card {
+                padding: 1.2rem;
+                border-radius: 15px;
+                margin-bottom: 1rem;
+            }
+
+            .glass-card h4 {
+                font-size: 1.2rem !important;
+            }
+
+            .skills-grid-new {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .skill-tag-card {
+                padding: 0.9rem 0.5rem;
+                font-size: 0.9rem;
+                min-height: 60px;
+            }
+
+            .contact-item {
+                padding: 1.2rem;
+            }
+
+            .contact-item h4 {
+                font-size: 1.1rem;
+            }
+
+            .contact-item a {
+                font-size: 1rem;
+            }
+
+            .tech-badge {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+                margin: 2px;
+            }
+
+            .skill-wheel-card {
+                padding: 1rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            .skills-wheel-track {
+                gap: 1rem;
+            }
+
+            .skills-wheel-container::before,
+            .skills-wheel-container::after {
+                width: 30px;
+            }
+
+            footer {
+                font-size: 0.9rem;
+                padding: 1.2rem;
+            }
+
+            /* Уменьшаем количество частиц на мобильных */
+            .particle {
+                display: none;
+            }
+
+            .particle:nth-child(3n) {
+                display: block;
+            }
+        }
+
+        /* Очень маленькие экраны (до 360px) */
+        @media (max-width: 360px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            nav a {
+                font-size: 0.75rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .glass-card {
+                padding: 1rem;
+            }
+
+            .skill-wheel-card {
+                padding: 0.8rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div id="particles"></div>
+    <div class="menu-overlay"></div>
 
     <nav>
+        <div class="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <ul>
             <li><a href="#hero">Главная</a></li>
             <li><a href="#about">Обо мне</a></li>
@@ -452,8 +809,10 @@
                 <hr style="margin: 1.5rem 0; opacity: 0.1;">
                 <p>Контактное лицо: Алия<br>
                     <img src="telegram_svg.svg" style="width: 24p; height: 24px; vertical-align: middle;"> <a href="https://t.me/mkaliya_a" style="color: rgb(120, 214, 237);">@mkaliya_a</a>, 
-                    <img src="phone.png" style="width: 24p; height: 24px; vertical-align: middle;"><a href="tel:+996501997055" onclick="copyText(this)"
-                    style="color: rgb(120, 214, 237); cursor: pointer; text-decoration: none;"> 0501997055</a>
+                    <img src="phone.png" style="width: 24p; height: 24px; vertical-align: middle;">
+                    <a href="tel:+996501997055" onclick="copyText(this)" style="color: rgb(120, 214, 237); cursor: pointer; text-decoration: none;"> 
+                        0501997055
+                    </a>
                 </p>
             </div>
             
@@ -543,7 +902,7 @@
                 <span class="tech-badge">🌐 Сети и протоколы</span>
                 <span class="tech-badge">🤖 ИИ и Автоматизация</span>
                 <span class="tech-badge">🎨 Blender 3D</span>
-                <span class="tech-badge">⚙️ Микроконтроллеры и одноплатные компьютеры</span>
+                <span class="tech-badge">⚙️ Микроконтроллеры</span>
             </div>
         </div>
     </section>
@@ -586,9 +945,37 @@
     </footer>
 
     <script>
-        // Частицы
+        // Бургер-меню
+        const burgerMenu = document.querySelector('.burger-menu');
+        const navMenu = document.querySelector('nav ul');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        
+        function toggleMenu() {
+            burgerMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        burgerMenu.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // Закрытие меню при клике на ссылку
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                burgerMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Частицы (меньше на мобильных)
         const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 250; i++) {
+        const isMobile = window.innerWidth <= 480;
+        const particleCount = isMobile ? 80 : 250;
+        
+        for (let i = 0; i < particleCount; i++) {
             const p = document.createElement('div');
             p.className = 'particle';
             const size = Math.random() * 5 + 2;
@@ -621,7 +1008,6 @@
                     entry.target.classList.add('visible');
                     const fill = entry.target.querySelector('.progress-fill');
                     if (fill) fill.style.width = fill.parentElement.previousElementSibling.dataset.progress ? '' : '100%'; 
-                    // Исправление для прогресс-баров
                     const progressVal = entry.target.querySelector('[data-progress]');
                     if (progressVal) {
                         setTimeout(() => {
@@ -635,19 +1021,14 @@
         document.querySelectorAll('.glass-card').forEach(card => observer.observe(card));
 
         function copyText(element) {
-            // Получаем текст из карточки
             const textToCopy = element.innerText;
             
-            // Копируем в буфер обмена
             navigator.clipboard.writeText(textToCopy).then(() => {
-                // Визуальный эффект подтверждения
                 const originalBg = element.style.background;
-                element.style.background = "rgba(121, 194, 226, 0.8)"; // Подсветка при клике
+                element.style.background = "rgba(121, 194, 226, 0.8)";
                 
-                // Маленькое уведомление (опционально)
                 console.log('Скопировано: ' + textToCopy);
                 
-                // Возвращаем исходный стиль через 200мс
                 setTimeout(() => {
                     element.style.background = originalBg;
                 }, 200);
