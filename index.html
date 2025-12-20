@@ -31,13 +31,16 @@
         
         .particle {
             position: absolute;
-            background: rgba(138, 43, 226, 0.6);
             border-radius: 50%;
             pointer-events: none;
-            box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
             filter: blur(0.5px);
             animation: float infinite linear;
         }
+
+        /* Несколько цветов частиц */
+        .particle:nth-child(1n) { background: rgba(138, 43, 226, 1.0); box-shadow: 0 0 10px rgba(138, 43, 226, 0.5); }
+        /* .particle:nth-child(2n) { background: rgb(43, 52, 226); box-shadow: 0 0 10px rgba(0, 191, 255, 0.5); } */
+        /* .particle:nth-child(3n) { background: rgb(196, 14, 157); box-shadow: 0 0 10px rgba(255, 20, 147, 0.5); } */
 
         @keyframes float {
             0% { transform: translate(0, 0); }
