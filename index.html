@@ -65,11 +65,32 @@
 
         .lang-switch {
             position: fixed;
-            top: 20px;
+            top: 14px;
             right: 20px;
             z-index: 101;
             display: flex;
             gap: 10px;
+        }
+
+        /* Адаптация для планшетов и мобильных */
+        @media (max-width: 768px) {
+            .lang-switch {
+                top: 15px;
+                right: 70px; /* сдвигаем влево, чтобы не перекрывать бургер */
+            }
+        }
+
+        /* Для маленьких мобильных */
+        @media (max-width: 480px) {
+            .lang-switch {
+                top: 12px;
+                right: 60px; /* еще ближе к бургеру на маленьких экранах */
+            }
+            
+            .lang-switch button {
+                padding: 6px 12px; /* делаем кнопки немного меньше */
+                font-size: 0.9rem;
+            }
         }
 
         .lang-switch button {
@@ -1082,40 +1103,37 @@
                 }
             }
         }
-        
-        i18next.init({
-            lng: 'ru', // язык по умолчанию
-            debug: true,
-            resources: resources
-            }, function(err, t) {
-            updateContent();
-            });
 
-        // 3. Функция для обновления текста на странице
-        function updateContent() {
-        const elements = document.querySelectorAll('[data-i18n]');
-        elements.forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            el.innerHTML = i18next.t(key);
+        // Получаем сохраненный язык
+        const savedLng = localStorage.getItem('selectedLng') || 'ru';
+
+        // Инициализируем i18next
+        i18next.init({
+            lng: savedLng,
+            fallbackLng: 'ru',
+            debug: false,
+            resources: resources
         });
+
+        // Функция для обновления текста - использует текущий текст элемента как fallback
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const defaultText = el.innerHTML.trim(); // берем текущий HTML как fallback
+                const translation = i18next.t(key, { defaultValue: defaultText });
+                el.innerHTML = translation;
+            });
         }
 
-        // 4. Функция смены языка
+        // Функция смены языка
         function changeLanguage(lng) {
-        i18next.changeLanguage(lng, () => {
-            updateContent();
-            localStorage.setItem('selectedLng', lng); // сохраняем выбор
-        });
-    }
-    
-    // Проверка, сохранял ли пользователь язык ранее
-    const savedLng = localStorage.getItem('selectedLng');
-    if (savedLng) {
-        changeLanguage(savedLng);
-    }
-    
-    
+            i18next.changeLanguage(lng, () => {
+                updateContent();
+                localStorage.setItem('selectedLng', lng);
+            });
+        }
 
+        updateContent();
 
 
         function toggleMenu() {
