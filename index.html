@@ -28,7 +28,7 @@
             height: 100%;
             z-index: 0;
         }
-        
+
         .particle {
             position: absolute;
             border-radius: 50%;
@@ -61,6 +61,30 @@
             display: flex;
             justify-content:end;
             align-items: center;
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 101;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-switch button {
+            padding: 8px 16px;
+            background: rgba(138, 43, 226, 0.3);
+            border: 1px solid rgba(138, 43, 226, 0.5);
+            color: #fff;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .lang-switch button:hover {
+            background: rgba(138, 43, 226, 0.6);
         }
 
         nav ul {
@@ -743,31 +767,36 @@
             <span></span>
         </div>
         <ul>
-            <li><a href="#hero">Главная</a></li>
-            <li><a href="#about">Обо мне</a></li>
-            <li><a href="#education">Образование</a></li>
-            <li><a href="#experience">Опыт</a></li>
-            <li><a href="#skills">Навыки</a></li>
-            <li><a href="#interests">Интересы</a></li>
-            <li><a href="#contact">Контакты</a></li>
+            <li><a href="#hero" data-i18n="main">Главная</a></li>
+            <li><a href="#about" data-i18n="about">Обо мне</a></li>
+            <li><a href="#education" data-i18n="education">Образование</a></li>
+            <li><a href="#experience" data-i18n="EXP">Опыт</a></li>
+            <li><a href="#skills" data-i18n="skills">Навыки</a></li>
+            <li><a href="#interests" data-i18n="interests">Интересы</a></li>
+            <li><a href="#contact" data-i18n="contacts">Связаться</a></li>
         </ul>
     </nav>
 
+    <div class="lang-switch">
+        <button onclick="changeLanguage('ru')">RU</button>
+        <button onclick="changeLanguage('en')">EN</button>
+    </div>
+
     <section id="hero">
         <div class="hero-content">
-            <h1>Бекназар Усенканов</h1>
-            <h2>Junior Full Stack Developer</h2>
+            <h1 data-i18n="name">Усенканов Бекназар</h1>
+            <h2 data-i18n="about2">Junior Backend Developer</h2>
             <div style="margin-top: 20px;">
-                <a href="#contact" class="btn">Связаться</a>
+                <a href="#contact" class="btn" data-i18n="contacts">Связаться</a>
             </div>
         </div>
     </section>
 
     <section id="about">
         <div class="container">
-            <h3>Обо мне</h3>
+            <h3 data-i18n="about">Обо мне</h3>
             <div class="glass-card">
-                <p style="text-align: center;">
+                <p style="text-align: center;" data-i18n="description">
                     Я Junior Full Stack разработчик на Python.
                     Разрабатывал REST API на DRF, работал с PostgreSQL, MySQL, проектировал базы данных, имею опыт работы с Celery для асинхронных задач и интеграции Redis.
                     Участвовал в командной разработке корпоративной системы управления для Red Petroleum.
@@ -781,73 +810,73 @@
 
     <section id="education">
         <div class="container">
-            <h3>Образование</h3>
+            <h3 data-i18n="education">Образование</h3>
             <div class="glass-card">
-                <h4 style="font-size: 1.5rem;">IT&Business College</h4>
-                <p style="color: #8a2be2;">Специальность: Программное Обеспечение Вычислительной Техники и Автоматизированных Систем</p>
-                <p>2023 - 2026 г. Бишкек</p>
+                <h4 style="font-size: 1.5rem;">IT & Business College</h4>
+                <p style="color: #8a2be2;" data-i18n="faculty">Специальность: Программное Обеспечение Вычислительной Техники и Автоматизированных Систем</p>
+                <p data-i18n="date_1">2023 - 2026, г. Бишкек</p>
                 <hr style="margin: 1.5rem 0; opacity: 0.1;">
-                <p><strong>Языки:</strong><br>Русский - C2<br>Английский - C1<br>Кыргызский - B1<br>Немецкий - A1</p>
+                <p data-i18n="languages"><strong>Языки:</strong><br>Русский - C2<br>Английский - B2<br>Кыргызский - B1</p>
                 <hr style="margin: 1.5rem 0; opacity: 0.1;">
-                <h4 style="font-size: 1.5rem;">Сертификаты</h4>
-                <p style="color: #8a2be2;">Codify Academy, Python Bootcamp</p>
-                <p>06/2024 - 09/2024</p>
+                <h4 style="font-size: 1.5rem;" data-i18n="certificates">Сертификаты</h4>
+                <p style="color: #8a2be2;" data-i18n="codify">Codify Academy, Python Bootcamp</p>
+                <p data-i18n="date_2">06/2024 - 09/2024, г. Бишкек</p>
             </div>
         </div>
     </section>
 
     <section id="experience">
         <div class="container">
-            <h3>Опыт работы</h3>
+            <h3 data-i18n="work_exp">Опыт работы</h3>
             <div class="glass-card">
-                <h4 style="font-size: 1.5rem;">Ассистент преподавателя</h4>
-                <p style="color: #ff1493;">Академия IT-RUN • 10/2024 - 02/2025</p>
+                <h4 style="font-size: 1.5rem;" data-i18n="assistant">Ассистент преподавателя</h4>
+                <p style="color: #ff1493;"  data-i18n="work_1">Академия IT-RUN • 10/2024 - 02/2025</p>
                 <hr style="margin: 1.5rem 0; opacity: 0.1;">
-                <p style="font-weight: bold;">Обязанности:</p>
-                <p>• Помощь студентам в освоении Python и основ программирования.
+                <p style="font-weight: bold;" data-i18n="responsibilities">Обязанности:</p>
+                <p data-i18n="work_1_list">• Помощь студентам в освоении Python и основ программирования.
                     <br>• Проверка заданий.
                     <br>• Объяснение концепций (ООП, БД).
                     <br>• Личная консультации по проектам и дз.
                 </p>
                 <hr style="margin: 1.5rem 0; opacity: 0.1;">
-                <p>Контактное лицо: Алия<br>
-                    <img src="telegram_svg.svg" style="width: 24p; height: 24px; vertical-align: middle;"> <a href="https://t.me/mkaliya_a" style="color: rgb(120, 214, 237);">@mkaliya_a</a>, 
-                    <img src="phone.png" style="width: 24p; height: 24px; vertical-align: middle;">
-                    <a href="tel:+996501997055" onclick="copyText(this)" style="color: rgb(120, 214, 237); cursor: pointer; text-decoration: none;"> 
-                        0501997055
-                    </a>
+                <p>
+                    <span data-i18n="work_1_contact">Контактное лицо: Алия</span>
+                    <img src="telegram_svg.svg" style="width: 24p; height: 24px; vertical-align: middle;"> <a href="https://t.me/mkaliya_a" style="color: rgb(120, 214, 237);">@mkaliya_a</a><br>
+                    📱<a href="tel:+996501997055" onclick="copyText(this)" style="color: rgb(120, 214, 237); cursor: pointer; text-decoration: none;">+996 501 997 055</a>
                 </p>
             </div>
             
             <div class="glass-card">
-                <h4 style="font-size: 1.5rem;">Backend разработчик</h4>
-                <p style="color: #ff1493;">Codify / Red Petroleum • 2024</p>
+                <h4 style="font-size: 1.5rem;" data-i18n="developer">Backend разработчик</h4>
+                <p style="color: #ff1493;" data-i18n="work_2">Codify / Red Petroleum • 2024</p>
                 <hr style="margin: 1.5rem 0; opacity: 0.1;">
-                <p style="font-weight: bold;">Обязанности:</p>
-                <p>• Разработка backend-логики на Django (управление пользователями, отделами, объектами).
+                <p style="font-weight: bold;" data-i18n="responsibilities">Обязанности:</p>
+                <p data-i18n="work_2_list">• Разработка backend-логики на Django (управление пользователями, отделами, объектами).
                     <br>• Проектирование и оптимизация базы данных PostgreSQL.
                     <br>• Реализация модуля финансовой отчетности с расчетом плановых и фактических показателей.
                     <br>• Интеграция Celery для асинхронной обработки задач.
                     <br>• Разработка REST API с использованием Django REST Framework.
                 </p>
                 <hr style="margin: 1.5rem 0; opacity: 0.1;">
-                <p>Контактное лицо: Каюм Аманбаев<br>
+                <p>
+                    <span data-i18n="work_2_contact">Контактное лицо: Аманбаев Каюм</span><br>
                     <img src="telegram_svg.svg" style="width: 24p; height: 24px; vertical-align: middle;"> <a href="https://t.me/amankaium" style="color: rgb(120, 214, 237);">@amankaium</a>
                 </p>
             </div>
 
             <div class="glass-card">
-                <h4 style="font-size: 1.5rem;">Помощник</h4>
-                <p style="color: #ff1493;">IT&Business College • 2025</p>
+                <h4 style="font-size: 1.5rem;" data-i18n="helper">Помощник</h4>
+                <p style="color: #ff1493;">IT & Business College • 2025</p>
                 <hr style="margin: 1.5rem 0; opacity: 0.1;">
-                <p style="font-weight: bold;">Обязанности:</p>
-                <p>• Управление учебной лаборатории: подготовка рабочих мест и инвентаря для занятий.
+                <p style="font-weight: bold;" data-i18n="responsibilities">Обязанности:</p>
+                <p data-i18n="work_3_list">• Управление учебной лаборатории: подготовка рабочих мест и инвентаря для занятий.
                     <br>• Помощь в научно-исследовательской деятельности.
                     <br>• Помощь в разработке некоторых учебных проектов.
                 </p>
                 <hr style="margin: 1.5rem 0; opacity: 0.1;">
-                <p>Контактное лицо: Нурбеков Мирлан<br>
-                    <img src="at_sign_svg.png" style="width: 24p; height: 24px; vertical-align: middle;"> <a href="mailto:mirlan.nurbekov@alatoo.edu.kg" onclick="copyText(this.querySelector('a'))" style="cursor: pointer; color: rgb(120, 214, 237);">mirlan.nurbekov@alatoo.edu.kg</a>
+                <p>
+                    <span data-i18n="work_3_contact">Контактное лицо: Нурбеков Мирлан</span><br>
+                    📧 <a href="mailto:mirlan.nurbekov@alatoo.edu.kg" onclick="copyText(this.querySelector('a'))" style="cursor: pointer; color: rgb(120, 214, 237);">mirlan.nurbekov@alatoo.edu.kg</a>
                 </p>
             </div>
         </div>
@@ -855,44 +884,44 @@
 
     <section id="skills">
         <div class="container">
-            <h3>Навыки</h3>
+            <h3 data-i18n="skills">Навыки</h3>
             <div class="skills-wheel-container">
                 <div class="skills-wheel-track">
-                    <div class="skill-wheel-card">Управление БД</div>
-                    <div class="skill-wheel-card">Навыки документирования</div>
-                    <div class="skill-wheel-card">Тестирование ПО</div>
-                    <div class="skill-wheel-card">Техническая поддержка</div>
-                    <div class="skill-wheel-card">Обучение пользователей</div>
-                    <div class="skill-wheel-card">Навыки отладки</div>
-                    <div class="skill-wheel-card">3D моделирование в Blender</div>
-                    <div class="skill-wheel-card">Работа с Figma</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_1">Управление БД</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_2">Навыки документирования</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_3">Тестирование ПО</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_4">Техническая поддержка</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_5">Обучение пользователей</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_6">Навыки отладки</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_7">3D моделирование в Blender</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_8">Работа с Figma</div>
                     
-                    <div class="skill-wheel-card">Управление БД</div>
-                    <div class="skill-wheel-card">Навыки документирования</div>
-                    <div class="skill-wheel-card">Тестирование ПО</div>
-                    <div class="skill-wheel-card">Техническая поддержка</div>
-                    <div class="skill-wheel-card">Обучение пользователей</div>
-                    <div class="skill-wheel-card">Навыки отладки</div>
-                    <div class="skill-wheel-card">3D моделирование в Blender</div>
-                    <div class="skill-wheel-card">Работа с Figma</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_1">Управление БД</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_2">Навыки документирования</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_3">Тестирование ПО</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_4">Техническая поддержка</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_5">Обучение пользователей</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_6">Навыки отладки</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_7">3D моделирование в Blender</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_8">Работа с Figma</div>
 
-                    <div class="skill-wheel-card">Управление БД</div>
-                    <div class="skill-wheel-card">Навыки документирования</div>
-                    <div class="skill-wheel-card">Тестирование ПО</div>
-                    <div class="skill-wheel-card">Техническая поддержка</div>
-                    <div class="skill-wheel-card">Обучение пользователей</div>
-                    <div class="skill-wheel-card">Навыки отладки</div>
-                    <div class="skill-wheel-card">3D моделирование в Blender</div>
-                    <div class="skill-wheel-card">Работа с Figma</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_1">Управление БД</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_2">Навыки документирования</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_3">Тестирование ПО</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_4">Техническая поддержка</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_5">Обучение пользователей</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_6">Навыки отладки</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_7">3D моделирование в Blender</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_8">Работа с Figma</div>
 
-                    <div class="skill-wheel-card">Управление БД</div>
-                    <div class="skill-wheel-card">Навыки документирования</div>
-                    <div class="skill-wheel-card">Тестирование ПО</div>
-                    <div class="skill-wheel-card">Техническая поддержка</div>
-                    <div class="skill-wheel-card">Обучение пользователей</div>
-                    <div class="skill-wheel-card">Навыки отладки</div>
-                    <div class="skill-wheel-card">3D моделирование в Blender</div>
-                    <div class="skill-wheel-card">Работа с Figma</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_1">Управление БД</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_2">Навыки документирования</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_3">Тестирование ПО</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_4">Техническая поддержка</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_5">Обучение пользователей</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_6">Навыки отладки</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_7">3D моделирование в Blender</div>
+                    <div class="skill-wheel-card" data-i18n="skill_item_8">Работа с Figma</div>
                 </div>
             </div>
         </div>
@@ -900,19 +929,19 @@
 
     <section id="interests">
         <div class="container">
-            <h3>Интересы</h3>
+            <h3 data-i18n="interests">Интересы</h3>
             <div class="glass-card" style="text-align: center;">
-                <span class="tech-badge">🌐 Сети и протоколы</span>
-                <span class="tech-badge">🤖 ИИ и Автоматизация</span>
-                <span class="tech-badge">🎨 Blender 3D</span>
-                <span class="tech-badge">⚙️ Микроконтроллеры и одноплатные компьютеры</span>
+                <span class="tech-badge" data-i18n="interests_1">🌐 Сети и протоколы</span>
+                <span class="tech-badge" data-i18n="interests_2">🤖 ИИ и Автоматизация</span>
+                <span class="tech-badge" data-i18n="interests_3">🎨 Blender 3D</span>
+                <span class="tech-badge" data-i18n="interests_4">⚙️ Микроконтроллеры и одноплатные компьютеры</span>
             </div>
         </div>
     </section>
 
     <section id="contact">
         <div class="container">
-            <h3>Контакты и Ссылки</h3>
+            <h3 data-i18n="contacts">Контакты и Ссылки</h3>
             <div class="contact-grid">
                 <div class="glass-card contact-item" onclick="copyText(this.querySelector('a'))" style="cursor: pointer;">
                     <h4>Email</h4>
@@ -920,13 +949,13 @@
                 </div>
 
                 <div class="glass-card contact-item">
-                    <h4>Телеграм</h4>
-                    <a href="https://t.me/SLTRZN" target="_blank">@SLTRZN</a>
+                    <h4 data-i18n="contacts_tg">Телеграм</h4>
+                    <a href="https://t.me/SLTRZN" target="_blank">@RLBLD</a>
                 </div>
 
                 <div class="glass-card contact-item" onclick="copyText(this.querySelector('a'))" style="cursor: pointer;">
-                    <h4>Телефон</h4>
-                    <a href="tel:0501190927">0501 190 927</a>
+                    <h4 data-i18n="contacts_phone">Телефон</h4>
+                    <a href="tel:+996501190927">+996 501 190 927</a>
                 </div>
 
                 <div class="glass-card contact-item">
@@ -944,15 +973,151 @@
     </section>
 
     <footer>
-        <p>© 2024 Усенканов Бекназар.</p>
+        <p data-i18n="footer">© 2025 Усенканов Бекназар.</p>
     </footer>
 
+    <script src="https://unpkg.com/i18next@21.6.10/dist/umd/i18next.min.js"></script>
     <script>
         // Бургер-меню
         const burgerMenu = document.querySelector('.burger-menu');
         const navMenu = document.querySelector('nav ul');
         const menuOverlay = document.querySelector('.menu-overlay');
+        const resources ={
+            en:{
+                translation:{
+                    "main":"Main",
+                    "about":"About me",
+                    "education":"Education",
+                    "EXP":"Expirience",
+                    "skills":"Skills",
+                    "interests":"Interests",
+                    "contacts":"Contact me",
+                    "name":"Beknazar Usenkanov",
+                    "about2":"Junior Backend Developer",
+                    "description":"I'm a Junior Backend Python Developer, developed REST APIs on DRF, worked with PostgreSQL and MySQL, designed databases, and have experience with Celery for asynchronous tasks and Redis integration. I participated in the team development of a corporate management system for Red Petroleum and worked as an assistant at a programming academy, helping students learn the basics of programming. Completed a Python course at Codify Academy and I strive to grow in backend development and am open to internships and junior positions.",
+                    "faculty":"Major: Software for Computing and Automated Systems",
+                    "date_1":"2023 - 2026, Bishkek city",
+                    "languages":"<strong>Languages:</strong><br>English - B2<br>Russian - C2",
+                    "certificates":"Certificates",
+                    "codify":"Codify Academy, Python Bootcamp",
+                    "date_2":"06/2024 - 09/2024, Bishkek city",
+                    "work_exp":"Work Experience",
+                    "assistant":"Assistant",
+                    "work_1":"IT-RUN Programming Academy • 10/2024 - 02/2025",
+                    "responsibilities":"Responsibilities:",
+                    "work_1_list":"• Helping students learn Python and programming basics.<br>• Checking assignments.<br>• Explanation of concepts (OOP, DB).<br>• Personal consultations on projects.",
+                    "work_1_contact":"Contact person: Aliya<br>",
+                    "developer":"Backend Developer",
+                    "work_2":"Codify / Red Petroleum • 2024",
+                    "work_2_list":"• Development of backend logic in Django (management of users, departments, objects).<br>• PostgreSQL database design and optimization.<br>• Implementation of a financial reporting module with calculation of planned and actual indicators.<br>• Celery integration for asynchronous task processing.<br>• Developing a REST API using the Django REST Framework.",
+                    "work_2_contact":"Contact person: Amanbaev Kayum",
+                    "helper":"Lecturer Assistant",
+                    "work_3_list":"• Lab management: preparation of workstations and equipment for classes.<br>• Assistance in researches.<br>• Assistance in development of some educational projects.",
+                    "work_3_contact":"Contact person: Mirlan Nurbekov",
+                    "skill_item_1":"Database Management",
+                    "skill_item_2":"Documentation skills,",
+                    "skill_item_3":"Software testing",
+                    "skill_item_4":"Technical support,",
+                    "skill_item_5":"User training",
+                    "skill_item_6":"Debugging skills",
+                    "skill_item_7":"3D modeling using Blender",
+                    "skill_item_8":"Experience with Figma",
+                    "interests":"Interests",
+                    "interests_1":"🌐 Study of network technologies and protocols (TCP/IP, Internet architecture)",
+                    "interests_2":"🤖 Automating Routine Tasks with Python (Parsing, Scripting)",
+                    "interests_3":"🎨 3D modeling using Blender",
+                    "interests_4":"⚙️ Single-board computers and microcontrollers",
+                    "contacts_tg":"Telegram",
+                    "contacts_phone":"Phone Number",
+                    "footer":"© 2025 Beknazar Usenkanov."
+                }
+            },
+            ru:{
+                translation:{
+                    "main":"Главная",
+                    "about":"Обо мне",
+                    "education":"Образование",
+                    "EXP":"Опыт",
+                    "skills":"Навыки",
+                    "interests":"Интересы",
+                    "contacts":"Связаться",
+                    "name":"Усенканов Бекназар",
+                    "about2":"Junior Backend Developer",
+                    "description":"Я Junior Backend разработчик на Python. Разрабатывал REST API на DRF, работал с PostgreSQL, MySQL, проектировал базы данных, имею опыт работы с Celery для асинхронных задач и интеграции Redis. Участвовал в командной разработке корпоративной системы управления для Red Petroleum. Работал ассистентом в академии программирования, помогал изучать основы программирования. Прошел курс по Python в Codify Academy. Стремлюсь развиваться в Backend-разработке, открыт к стажировкам и junior-позициям.",
+                    "faculty":"Специальность: Программное Обеспечение Вычислительной Техники и Автоматизированных Систем",
+                    "date_1":"2023 - 2026, г. Бишкек",
+                    "languages":"<strong>Языки:</strong><br>Английский - B2<br>Русский - C2",
+                    "certificates":"Сертификаты",
+                    "codify":"Codify Academy, Python Bootcamp",
+                    "date_2":"06/2024 - 09/2024, г. Бишкек",
+                    "work_exp":"Опыт работы",
+                    "assistant":"Ассистент преподавателя",
+                    "work_1":"Академия IT-RUN • 10/2024 - 02/2025",
+                    "responsibilities":"Обязанности:",
+                    "work_1_list":"• Помощь студентам в освоении Python и основ программирования.<br>• Проверка заданий.<br>• Объяснение концепций (ООП, БД).<br>• Личная консультации по проектам и дз.",
+                    "work_1_contact":"Контактное лицо: Алия<br>",
+                    "developer":"Backend разработчик",
+                    "work_2":"Codify / Red Petroleum • 2024",
+                    "work_2_list":"• Разработка backend-логики на Django (управление пользователями, отделами, объектами).<br>• Проектирование и оптимизация базы данных PostgreSQL.<br>• Реализация модуля финансовой отчетности с расчетом плановых и фактических показателей.<br>• Интеграция Celery для асинхронной обработки задач.<br>• Разработка REST API с использованием Django REST Framework.",
+                    "work_2_contact":"Контактное лицо: Каюм Аманбаев",
+                    "helper":"Помощник преподавателя",
+                    "work_3_list":"• Управление учебной лаборатории: подготовка рабочих мест и инвентаря для занятий.<br>• Помощь в научно-исследовательской деятельности.<br>• Помощь в разработке некоторых учебных проектов.",
+                    "work_3_contact":"Контактное лицо: Нурбеков Мирлан",
+                    "skill_item_1":"Управление БД",
+                    "skill_item_2":"Навыки документирования",
+                    "skill_item_3":"Тестирование ПО",
+                    "skill_item_4":"Техническая поддержка",
+                    "skill_item_5":"Обучение пользователей",
+                    "skill_item_6":"Навыки отладки",
+                    "skill_item_7":"3D моделирование в Blender",
+                    "skill_item_8":"Работа с Figma",
+                    "interests":"Интересы",
+                    "interests_1":"🌐 Сети и протоколы",
+                    "interests_2":"🤖 ИИ и Автоматизация",
+                    "interests_3":"🎨 Blender 3D",
+                    "interests_4":"⚙️ Микроконтроллеры и одноплатные компьютеры",
+                    "contacts_tg":"Телеграм",
+                    "contacts_phone":"Телефон",
+                    "footer":"© 2025 Усенканов Бекназар.",
+                }
+            }
+        }
         
+        i18next.init({
+            lng: 'ru', // язык по умолчанию
+            debug: true,
+            resources: resources
+            }, function(err, t) {
+            updateContent();
+            });
+
+        // 3. Функция для обновления текста на странице
+        function updateContent() {
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            el.innerHTML = i18next.t(key);
+        });
+        }
+
+        // 4. Функция смены языка
+        function changeLanguage(lng) {
+        i18next.changeLanguage(lng, () => {
+            updateContent();
+            localStorage.setItem('selectedLng', lng); // сохраняем выбор
+        });
+    }
+    
+    // Проверка, сохранял ли пользователь язык ранее
+    const savedLng = localStorage.getItem('selectedLng');
+    if (savedLng) {
+        changeLanguage(savedLng);
+    }
+    
+    
+
+
+
         function toggleMenu() {
             burgerMenu.classList.toggle('active');
             navMenu.classList.toggle('active');
@@ -1041,4 +1206,5 @@
         }
     </script>
 </body>
+
 </html>
