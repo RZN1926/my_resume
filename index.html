@@ -1222,6 +1222,35 @@
                 console.error('Ошибка при копировании: ', err);
             });
         }
+
+
+        // --- Блок автоматического нажатия на кнопку языка ---
+        window.addEventListener('load', () => {
+            // Небольшая задержка, чтобы DOM и скрипты i18next полностью стабилизировались
+            setTimeout(() => {
+                const targetLng = localStorage.getItem('selectedLng') || 'en';
+                console.log(`[Language Auto-Click] Целевой язык: ${targetLng}`);
+
+                const buttons = document.querySelectorAll('.lang-switch button');
+                let buttonFound = false;
+
+                buttons.forEach(btn => {
+                    // Очищаем текст кнопки от пробелов и приводим к нижнему регистру для сравнения
+                    const btnText = btn.innerText.trim().toLowerCase();
+                    
+                    if (btnText === targetLng.toLowerCase()) {
+                        console.log(`[Language Auto-Click] Кнопка "${btn.innerText}" найдена. Выполняю нажатие...`);
+                        btn.click();
+                        buttonFound = true;
+                        console.log(`[Language Auto-Click] Успешно: событие click() вызвано.`);
+                    }
+                });
+
+                if (!buttonFound) {
+                    console.error(`[Language Auto-Click] Ошибка: кнопка для языка "${targetLng}" не найдена в DOM.`);
+                }
+            }, 150); // 150мс достаточно для завершения всех процессов инициализации
+        });
     </script>
 </body>
 
